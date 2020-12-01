@@ -1,1 +1,69 @@
-<p>add-envoie works!</p>
+<div class="col-md-9 offset-md-3 mt-3">
+    <div class="card">
+        <h4 class="card-header">TEnvoie</h4>
+        <div class="card-body">
+            <div class="submit-form">
+                <div *ngIf="!submitted">
+
+                    <div class="form-group">
+                        <label for="prenom">Montant</label>
+                        <!--input required minlength="2" type="text" formControlName="prenom" class="form-control" placeholder="prenom" id="prenom"-->
+                        <input type="text" class="form-control" id="montant" required [(ngModel)]="envoie.montant" name="montant"/>
+                        </div>
+
+                    <div class="form-group">
+                    <label for="prenom">Prenom Emetteur</label>
+                    <!--input required minlength="2" type="text" formControlName="prenom" class="form-control" placeholder="prenom" id="prenom"-->
+                    <input type="text" class="form-control" id="prenomEme" required [(ngModel)]="envoie.prenomEme" name="prenomEme"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <!--input required minlength="2" type="text" formControlName="nom" class="form-control" placeholder="nom" id="nom"-->
+                        <input type="text" class="form-control" id="nomEme" required [(ngModel)]="envoie.nomEme" name="nomEme"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telephone">Telephone Emetteur</label>
+                        <!--input required minlength="2" type="text" formControlName="telephone" class="form-control" placeholder="telephone" id="telephone"-->
+                        <input type="text" class="form-control" id="telephoneEme" required [(ngModel)]="envoie.telephoneEme" name="telephoneEme"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cni">CNI</label>
+                        <!--input required minlength="2" type="text" formControlName="cni" class="form-control" placeholder="cni" id="cni"-->
+                        <input type="text" class="form-control" id="cniEme" required [(ngModel)]="envoie.cniEme" name="cniEme"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prenom">Prenom Recepteur</label>
+                        <!--input required minlength="2" type="text" formControlName="prenom" class="form-control" placeholder="prenom" id="prenom"-->
+                        <input type="text" class="form-control" id="prenomRec" required [(ngModel)]="envoie.prenomRec" name="prenomRec"/>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="nom">Nom Recepteur</label>
+                            <!--input required minlength="2" type="text" formControlName="nom" class="form-control" placeholder="nom" id="nom"-->
+                            <input type="text" class="form-control" id="nomRec" required [(ngModel)]="envoie.nomRec" name="nomRec"/>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="telephone">Telephone Recepteur</label>
+                            <!--input required minlength="2" type="text" formControlName="telephone" class="form-control" placeholder="telephone" id="telephone"-->
+                            <input type="text" class="form-control" id="telephoneec" required [(ngModel)]="envoie.telephoneRec" name="telephoneRec"/>
+                        </div>
+                    
+                        <!--button class="btn btn-success" type="submit" (click)="onSaveClient(addClient)">Enregistrer</!--button>
+            </form>
+        </div>
+    </div>
+  </div-->
+  <button (click)="onSaveEnvoie()" class="btn btn-success">Enregistrer</button>
+    </div>
+
+  <div *ngIf="submitted">
+    <h3>You successfully created a envoie!</h3>
+    <button class="btn btn-success" (click)="newEnvoie()">Enregistrer</button>
+  </div>
+</div>
+</div>

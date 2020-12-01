@@ -3,22 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClientsComponent } from './components/clients/clients.component';
 import { EnvoiesComponent } from './components/envoies/envoies.component';
-import { AddClientComponent } from './components/add-client/add-client.component';
 import { AddEnvoieComponent } from './components/add-envoie/add-envoie.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientsComponent,
     EnvoiesComponent,
-    AddClientComponent,
     AddEnvoieComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

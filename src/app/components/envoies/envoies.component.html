@@ -1,1 +1,36 @@
-<p>envoies works!</p>
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-left">ID</th>
+                                <th class="text-left">MONTANT</th>
+                                <th class="text-left">DATE</th>
+                                <th class="text-left">PRENOM-EME</th>
+                                <th class="text-left">NOM-EME</th>
+                                <th class="text-left">TELEPHONE-EME</th>
+                                <th class="text-left">CNI-EME</th>
+                                <th class="text-left">PRENOM-REC</th>
+                                <th class="text-left">NOM-REC</th>
+                                <th class="text-left">TELEPHONE-REC</th>
+                            </tr> 
+                        </thead>
+                        <tbody class="table-hover">
+                            <tr *ngFor="let envoie of envoies">     
+                                <td class="text-left ">{{envoie.id}}</td>
+                                <td class="text-left ">{{envoie.montant}}</td>
+                                <td class="text-left ">{{envoie.dateEnvoi | date:'yyyy-MM-dd h:mm:ss a'}}</td>
+                                <td class="text-left ">{{envoie.emetteur.prenomEme}}</td>
+                                <td class="text-left ">{{envoie.emetteur.nomEme}}</td>
+                                <td class="text-left ">{{envoie.emetteur.telephoneEme}}</td>
+                                <td class="text-left ">{{envoie.emetteur.cni}}</td>
+                                <td class="text-left ">{{envoie.recepteur.prenomRec}}</td>
+                                <td class="text-left ">{{envoie.recepteur.nomRec}}</td>
+                                <td class="text-left ">{{envoie.recepteur.telephoneRec}}</td>
+                            </tr>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
