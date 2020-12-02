@@ -1,5 +1,5 @@
-export class Envoie{
-  id?:number;
+export interface Envoie{
+  id:number;
   //dateEnvoi: Date;
   montant: number;
   emetteur?: any; 

@@ -1,69 +1,74 @@
-<div class="col-md-9 offset-md-3 mt-3">
-    <div class="card">
-        <h4 class="card-header">TEnvoie</h4>
-        <div class="card-body">
-            <div class="submit-form">
-                <div *ngIf="!submitted">
+<div class="container">
+    <h1>Faire un envoie</h1>
+    <a href="#" routerLink="/envoies" class="btn btn-primary">Back</a>
+    <form [formGroup]="form" (ngSubmit)="submit()">
 
-                    <div class="form-group">
-                        <label for="prenom">Montant</label>
-                        <!--input required minlength="2" type="text" formControlName="prenom" class="form-control" placeholder="prenom" id="prenom"-->
-                        <input type="text" class="form-control" id="montant" required [(ngModel)]="envoie.montant" name="montant"/>
-                        </div>
-
-                    <div class="form-group">
-                    <label for="prenom">Prenom Emetteur</label>
-                    <!--input required minlength="2" type="text" formControlName="prenom" class="form-control" placeholder="prenom" id="prenom"-->
-                    <input type="text" class="form-control" id="prenomEme" required [(ngModel)]="envoie.prenomEme" name="prenomEme"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nom">Nom</label>
-                        <!--input required minlength="2" type="text" formControlName="nom" class="form-control" placeholder="nom" id="nom"-->
-                        <input type="text" class="form-control" id="nomEme" required [(ngModel)]="envoie.nomEme" name="nomEme"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telephone">Telephone Emetteur</label>
-                        <!--input required minlength="2" type="text" formControlName="telephone" class="form-control" placeholder="telephone" id="telephone"-->
-                        <input type="text" class="form-control" id="telephoneEme" required [(ngModel)]="envoie.telephoneEme" name="telephoneEme"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="cni">CNI</label>
-                        <!--input required minlength="2" type="text" formControlName="cni" class="form-control" placeholder="cni" id="cni"-->
-                        <input type="text" class="form-control" id="cniEme" required [(ngModel)]="envoie.cniEme" name="cniEme"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="prenom">Prenom Recepteur</label>
-                        <!--input required minlength="2" type="text" formControlName="prenom" class="form-control" placeholder="prenom" id="prenom"-->
-                        <input type="text" class="form-control" id="prenomRec" required [(ngModel)]="envoie.prenomRec" name="prenomRec"/>
-                        </div>
-    
-                        <div class="form-group">
-                            <label for="nom">Nom Recepteur</label>
-                            <!--input required minlength="2" type="text" formControlName="nom" class="form-control" placeholder="nom" id="nom"-->
-                            <input type="text" class="form-control" id="nomRec" required [(ngModel)]="envoie.nomRec" name="nomRec"/>
-                        </div>
-    
-                        <div class="form-group">
-                            <label for="telephone">Telephone Recepteur</label>
-                            <!--input required minlength="2" type="text" formControlName="telephone" class="form-control" placeholder="telephone" id="telephone"-->
-                            <input type="text" class="form-control" id="telephoneec" required [(ngModel)]="envoie.telephoneRec" name="telephoneRec"/>
-                        </div>
-                    
-                        <!--button class="btn btn-success" type="submit" (click)="onSaveClient(addClient)">Enregistrer</!--button>
-            </form>
+        <div class="form-group">
+            <label for="montant">Montant:</label>
+            <input formControlName="montant" id="montant" type="number" class="form-control">
+            <div *ngIf="f.montant.touched && f.montant.invalid" class="alert alert-danger">
+                <div *ngIf="f.montant.errors.required">Montant obligatoire</div>
+            </div>
         </div>
-    </div>
-  </div-->
-  <button (click)="onSaveEnvoie()" class="btn btn-success">Enregistrer</button>
-    </div>
 
-  <div *ngIf="submitted">
-    <h3>You successfully created a envoie!</h3>
-    <button class="btn btn-success" (click)="newEnvoie()">Enregistrer</button>
-  </div>
-</div>
+        <div class="form-group">
+            <label for="prenomEme">Prenom Emetteur:</label>
+            <input formControlName="prenomEme" id="prenomEme" type="text" class="form-control">
+            <div *ngIf="f.prenomEme.touched && f.prenomEme.invalid" class="alert alert-danger">
+                <div *ngIf="f.prenomEme.errors.required">Prenom obligatoire</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="nomEme">Nom Emetteur:</label>
+            <input formControlName="nomEme" id="nomEme" type="text" class="form-control">
+            <div *ngIf="f.nomEme.touched && f.nomEme.invalid" class="alert alert-danger">
+                <div *ngIf="f.nomEme.errors.required">Nom obligatoire</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="telephoneEme">Telephone Emetteur:</label>
+            <input formControlName="telephoneEme" id="telephoneEme" type="text" class="form-control">
+            <div *ngIf="f.telephoneEme.touched && f.telephoneEme.invalid" class="alert alert-danger">
+                <div *ngIf="f.telephoneEme.errors.required">Telephone obligatoire</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cni">CNI Emetteur:</label>
+            <input formControlName="cni" id="cni" type="text" class="form-control">
+            <div *ngIf="f.cni.touched && f.cni.invalid" class="alert alert-danger">
+                <div *ngIf="f.cni.errors.required">CNI obligatoire</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="prenomRec">Prenom Recepteur:</label>
+            <input formControlName="prenomRec" id="prenomRec" type="text" class="form-control">
+            <div *ngIf="f.prenomRec.touched && f.prenomRec.invalid" class="alert alert-danger">
+                <div *ngIf="f.prenomRec.errors.required">Prenom obligatoire</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="nomRec">Nom Recepteur:</label>
+            <input formControlName="nomRec" id="nomRec" type="text" class="form-control">
+            <div *ngIf="f.nomRec.touched && f.nomRec.invalid" class="alert alert-danger">
+                <div *ngIf="f.nomRec.errors.required">Nom obligatoire</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="telephoneRec">Telephone Emetteur:</label>
+            <input formControlName="telephoneRec" id="telephoneRec" type="text" class="form-control">
+            <div *ngIf="f.telephoneRec.touched && f.telephoneRec.invalid" class="alert alert-danger">
+                <div *ngIf="f.telephoneRec.errors.required">Telephone obligatoire</div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+
+    </form>
+
 </div>
