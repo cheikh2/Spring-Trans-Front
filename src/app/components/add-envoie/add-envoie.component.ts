@@ -34,24 +34,27 @@ export class AddEnvoieComponent implements OnInit {
   submit(){
     let e= {} as Envoie;
 
-      e.emetteur = {
-        prenomEme:this.form.value.prenomEme,
-        nomEme:this.form.value.nomEme,
-        telephoneEme:this.form.value.telephoneEme,
-        cni:this.form.value.cni
-      }
+     { 
+        e.montant=this.form.value.montant,
 
-      e.recepteur = {
-        prenomRec:this.form.value.prenomRec,
-        nomRec:this.form.value.nomRec,
-        telephoneRec:this.form.value.telephoneRec
-      }
+          e.emetteur = {
+            prenomEme:this.form.value.prenomEme,
+            nomEme:this.form.value.nomEme,
+            telephoneEme:this.form.value.telephoneEme,
+            cni:this.form.value.cni
+          },
 
-    console.log(this.form.value);
-    this.envoieService.postEnvoie(e).subscribe(res => {
-         console.log('Envoie created successfully!');
-         this.router.navigateByUrl('/envoies');
-    })
-  }
+          e.recepteur = {
+            prenomRec:this.form.value.prenomRec,
+            nomRec:this.form.value.nomRec,
+            telephoneRec:this.form.value.telephoneRec
+          }
+
+        console.log(this.form.value);
+        this.envoieService.postEnvoie(e).subscribe(res => {
+            console.log('Envoie created successfully!');
+            this.router.navigateByUrl('/envoies');
+        })
+    }
 }
-
+}
