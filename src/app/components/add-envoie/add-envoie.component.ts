@@ -1,3 +1,4 @@
+import { Envoie } from './../../models/envoie';
 import { EnvoieService } from './../../services/envoie.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
@@ -27,20 +28,30 @@ export class AddEnvoieComponent implements OnInit {
   }
 
   get f(){
-
     return this.form.controls;
-
   }
 
   submit(){
+    let e= {} as Envoie;
+
+      e.emetteur = {
+        prenomEme:this.form.value.prenomEme,
+        nomEme:this.form.value.nomEme,
+        telephoneEme:this.form.value.telephoneEme,
+        cni:this.form.value.cni
+      }
+
+      e.recepteur = {
+        prenomRec:this.form.value.prenomRec,
+        nomRec:this.form.value.nomRec,
+        telephoneRec:this.form.value.telephoneRec
+      }
+
     console.log(this.form.value);
-    this.envoieService.postEnvoie(this.form.value).subscribe(res => {
+    this.envoieService.postEnvoie(e).subscribe(res => {
          console.log('Envoie created successfully!');
          this.router.navigateByUrl('/envoies');
-
     })
-
   }
-
 }
 
